@@ -9,6 +9,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    container: ghcr.io/staticrocket/psdk-doc-docker:latest
     permissions:
       actions: read
       contents: read
@@ -17,9 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install rstcheck
-        run: |
-          apt-get update && apt-get install rstcheck
       - name: Run rstcheck
         run: |
           rstcheck -r source/
