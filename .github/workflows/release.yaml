@@ -31,4 +31,3 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/html/web.zip"
-          token: ${{ secrets.GHTOKEN }}
