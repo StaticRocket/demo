@@ -13,7 +13,7 @@ jobs:
     container: ghcr.io/staticrocket/psdk-doc-docker:latest
     permissions:
       actions: read
-      contents: read
+      contents: write
       security-events: write
 
     steps:
