@@ -17,6 +17,8 @@ jobs:
       actions: read
       contents: write
       security-events: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
