@@ -6,19 +6,20 @@ on:
     branches: [master]
 
 jobs:
-  name: Lint
-  runs-on: ubuntu-latest
-  permissions:
-    action: read
-    contents: read
-    security-events: write
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      action: read
+      contents: read
+      security-events: write
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Install rstcheck
-      run: |
-        apt-get update && apt-get install rstcheck
-    - name: Run rstcheck
-      run: |
-        rstcheck -r source/
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install rstcheck
+        run: |
+          apt-get update && apt-get install rstcheck
+      - name: Run rstcheck
+        run: |
+          rstcheck -r source/
