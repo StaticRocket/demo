@@ -11,6 +11,9 @@ Welcome to demo's documentation!
    :caption: Contents:
 
 
+.. bad::
+   This is invalid
+
 
 Indices and tables
 ==================
