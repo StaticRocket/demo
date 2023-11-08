@@ -10,6 +10,9 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     container: ghcr.io/staticrocket/psdk-doc-docker:latest
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
     permissions:
       actions: read
       contents: write
@@ -30,3 +33,14 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/html/web.zip"
+      - name: Remove zip artifact
+        run: rm build/html/web.zip
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'build/html'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
