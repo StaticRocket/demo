@@ -13,6 +13,9 @@ Hello World
    :caption: Contents:
 
 
+.. bad::
+   This is invalid
+
 
 Indices and tables
 ==================
